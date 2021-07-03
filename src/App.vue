@@ -37,6 +37,19 @@
     </footer>
   </div>
 </template>
+<script>
+export default {
+  name: 'Main',
+  data() {
+    return {
+      api_url: process.env.VUE_APP_API_URL || 'api.com'
+    }
+  },
+  mounted () {
+    console.log(this.api_url)
+  }
+}
+</script>
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
@@ -47,12 +60,7 @@
 }
 
 .nav {
-  // padding: 30px;
-
   li a {
-    // font-weight: bold;
-    // color: #2c3e50;
-
     &.router-link-exact-active {
       color: #42b983;
     }
