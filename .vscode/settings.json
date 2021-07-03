@@ -1,5 +1,8 @@
 {
     "files.exclude": {
+        "**/.github": true,
+        "**/.idea": true,
+        "**/.vscode": true,
         "**/node_modules": true
     }
 }
