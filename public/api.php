@@ -1,3 +1,3 @@
 <?php
 
-echo 'Olá';
+require_once '../vendor/autoload.php';
