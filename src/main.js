@@ -16,12 +16,7 @@ library.add(far)
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import 'bootstrap'
-import 'bootstrap/scss/bootstrap.scss'
 import './assets/css/starter.css'
-// import './assets/scss/main.scss'
-
-// const app = createApp(App)
-
-// app.component('font-awesome-icon', FontAwesomeIcon)
+import './assets/scss/main.scss'
 
 createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(router).mount('#app')
