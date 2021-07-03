@@ -31,17 +31,6 @@
         </ul>
       </div>
     </div>
-    <!-- <header class="d-flex flex-wrap justify-content-center py-3 mb-5 border-bottom">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <img src="./assets/bookmark.svg" alt="Favoritos" width="30" height="30">
-        <span class="fs-4">Favoritos</span>
-      </a>
-
-      <ul class="nav nav-pills">
-        <li class="nav-item"><router-link to="/" class="nav-link active" aria-current="page">Início</router-link></li>
-        <li class="nav-item"><router-link to="/about" class="nav-link">Sobre</router-link></li>
-      </ul>
-    </header> -->
 
     <router-view/>
 
