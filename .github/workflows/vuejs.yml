@@ -20,6 +20,6 @@ jobs:
           git checkout HEAD^ yarn.lock
           git checkout HEAD^ package.json
           git pull origin main
-          /usr/bin/node --optimize_for_size --max_old_space_size=128 --gc_interval=100 /usr/bin/yarn install --no-optional --no-shrinkwrap --no-package-lock
-          /usr/bin/node --optimize_for_size --max_old_space_size=128 --gc_interval=100 /usr/bin/yarn build
+          /usr/bin/node --optimize_for_size --max_old_space_size=128 --gc_interval=100 /usr/local/bin/yarn install --no-optional --no-shrinkwrap --no-package-lock
+          /usr/bin/node --optimize_for_size --max_old_space_size=128 --gc_interval=100 /usr/local/bin/yarn build
           rsync -av /var/www/fav.lucasbrum.net/dist/ /var/www/fav.lucasbrum.net/html/
