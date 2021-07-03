@@ -1,15 +1,12 @@
 <template>
   <div class="col-lg-8 mx-auto p-3 py-md-5">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start mb-3">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
         <img src="./assets/bookmark.svg" alt="Favoritos" width="30" height="30">
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <!-- <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li> -->
-        <!-- <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li> -->
-        <!-- <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li> -->
-        <!-- <li><a href="#" class="nav-link px-2 link-dark">Products</a></li> -->
         <li><router-link to="/" class="nav-link px-2 link-dark">Início</router-link></li>
         <li><router-link to="/about" class="nav-link px-2 link-dark">Sobre</router-link></li>
       </ul>
