@@ -42,7 +42,7 @@ export default {
   name: 'Main',
   data() {
     return {
-      api_url: process.env.VUE_APP_API_URL || 'api.com'
+      api_url: process.env.API_URL
     }
   },
   mounted () {
