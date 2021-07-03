@@ -18,14 +18,14 @@
       <div class="dropdown text-end">
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
           <!-- <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32"> -->
-          <font-awesome-icon :icon="['fas', 'user-secret']" />
+          <font-awesome-icon :icon="['fas', 'user-circle']" size="lg" />
         </a>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" href="#">New project...</a></li>
-          <li><a class="dropdown-item" href="#">Settings</a></li>
-          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><router-link to="/login" class="dropdown-item">Login</router-link></li>
+          <li><router-link to="/login" class="dropdown-item">Login</router-link></li>
+          <li><router-link to="/login" class="dropdown-item">Login</router-link></li>
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Sign out</a></li>
+          <li><router-link to="/login" class="dropdown-item">Login</router-link></li>
         </ul>
       </div>
     </div>
@@ -42,7 +42,7 @@ export default {
   name: 'Main',
   data() {
     return {
-      api_url: process.env.VUE_APP_API_URL
+      api_url: process.env.VUE_APP_API_URL || 'https://favoritos-api.lucasbrum.net'
     }
   },
   mounted () {
