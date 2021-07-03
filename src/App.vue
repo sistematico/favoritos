@@ -17,7 +17,8 @@
 
       <div class="dropdown text-end">
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
+          <!-- <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32"> -->
+          <font-awesome-icon :icon="['fas', 'user-secret']" />
         </a>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
           <li><a class="dropdown-item" href="#">New project...</a></li>
