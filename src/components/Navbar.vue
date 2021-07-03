@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start mb-3">
     <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-      <img src="./assets/bookmark.svg" alt="Favoritos" width="30" height="30">
+      <img src="../assets/bookmark.svg" alt="Favoritos" width="30" height="30">
     </a>
 
     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
