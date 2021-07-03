@@ -14,13 +14,14 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 library.add(far)
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-Vue.component('font-awesome-icon', FontAwesomeIcon)
-
-Vue.config.productionTip = false
 
 import 'bootstrap'
 import 'bootstrap/scss/bootstrap.scss'
 import './assets/css/starter.css'
 // import './assets/scss/main.scss'
 
-createApp(App).use(router).mount('#app')
+// const app = createApp(App)
+
+// app.component('font-awesome-icon', FontAwesomeIcon)
+
+createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(router).mount('#app')
