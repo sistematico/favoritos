@@ -11,49 +11,49 @@ $router = new Router(URL);
 $router->post('/api/v1/auth', [
     'middlewares' => ['api'],
     function($request) {
-        return new Response(201, Api\Auth::generateToken($request), 'application/json');
+        return new Response(201, Auth::generateToken($request), 'application/json');
     }
 ]);
 
 $router->get('/api/v1/users', [
     'middlewares' => ['api','jwt-auth'],
     function($request) {
-        return new Response(200, Api\User::getUsers($request), 'application/json');
+        return new Response(200, User::getUsers($request), 'application/json');
     }
 ]);
 
 $router->get('/api/v1/users/me', [
     'middlewares' => ['api','jwt-auth'],
     function($request) {
-        return new Response(200, Api\User::getCurrentUser($request), 'application/json');
+        return new Response(200, User::getCurrentUser($request), 'application/json');
     }
 ]);
 
 $router->get('/api/v1/users/{id}', [
     'middlewares' => ['api','jwt-auth'],
     function($request, $id) {
-        return new Response(200, Api\User::getUser($request, $id), 'application/json');
+        return new Response(200, User::getUser($request, $id), 'application/json');
     }
 ]);
 
 $router->post('/api/v1/users', [
     'middlewares' => ['api','jwt-auth'],
     function($request) {
-        return new Response(201, Api\User::setNewUser($request), 'application/json');
+        return new Response(201, User::setNewUser($request), 'application/json');
     }
 ]);
 
 $router->put('/api/v1/users/{id}', [
     'middlewares' => ['api','jwt-auth'],
     function($request, $id) {
-        return new Response(200, Api\User::setEditUser($request, $id), 'application/json');
+        return new Response(200, User::setEditUser($request, $id), 'application/json');
     }
 ]);
 
 $router->delete('/api/v1/users/{id}', [
     'middlewares' => ['api','jwt-auth'],
     function($request, $id) {
-        return new Response(200, Api\User::setDeleteUser($request, $id), 'application/json');
+        return new Response(200, User::setDeleteUser($request, $id), 'application/json');
     }
 ]);
 
@@ -65,7 +65,7 @@ $router->get('/api/v1/posts', [
         'cache'
     ],
     function($request) {
-        return new Response(200, Api\Post::getPosts($request), 'application/json');
+        return new Response(200, Post::getPosts($request), 'application/json');
     }
 ]);
 
@@ -74,7 +74,7 @@ $router->get('/api/v1/posts/{id}', [
         'api'
     ],
     function($request, $id) {
-        return new Response(200, Api\Post::getPost($request, $id), 'application/json');
+        return new Response(200, Post::getPost($request, $id), 'application/json');
     }
 ]);
 
@@ -83,7 +83,7 @@ $router->post('/api/v1/posts', [
         'api'
     ],
     function($request) {
-        return new Response(201, Api\Post::setNewPost($request), 'application/json');
+        return new Response(201, Post::setNewPost($request), 'application/json');
     }
 ]);
 
@@ -92,7 +92,7 @@ $router->put('/api/v1/posts/{id}', [
         'api'
     ],
     function($request, $id) {
-        return new Response(200, Api\Post::setEditPost($request, $id), 'application/json');
+        return new Response(200, Post::setEditPost($request, $id), 'application/json');
     }
 ]);
 
@@ -101,7 +101,7 @@ $router->delete('/api/v1/posts/{id}', [
         'api',
     ],
     function($request, $id) {
-        return new Response(200, Api\Post::setDeletePost($request, $id), 'application/json');
+        return new Response(200, Post::setDeletePost($request, $id), 'application/json');
     }
 ]);
 
