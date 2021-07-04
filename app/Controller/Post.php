@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Controller\Api;
+namespace App\Controller;
 
 use \App\Model\Entity\Post as EntityPost;
 use \App\Utils\Pagination;
 
 class Post extends Api
 {
-    public static function getPostItems($request, &$obPagination)
+    public static function getPostItems($request, &$obPagination): array
     {
         $itens = [];
         

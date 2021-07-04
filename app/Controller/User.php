@@ -2,12 +2,13 @@
 
 namespace App\Controller;
 
-use \App\Model\Entity\User as EntityUser;
-use \App\Utils\Pagination;
+use App\Model\Entity\User as EntityUser;
+use App\Utils\Pagination;
+use Exception;
 
 class User extends Api
 {
-    public static function getUserItems($request, &$obPagination)
+    public static function getUserItems($request, &$obPagination): array
     {
         $itens = [];
         
@@ -40,12 +41,12 @@ class User extends Api
     public static function getUser($request, $id): array
     {
         if (!is_numeric($id)) {
-            throw new \Exception("O ID: " . $id . " não é válido", 400);            
+            throw new Exception("O ID: " . $id . " não é válido", 400);
         }
 
         $obUser = EntityUser::getUserById($id);
         if (!$obUser instanceof EntityUser) {
-            throw new \Exception("O usuário ID: " . $id . " não foi encontrado.", 404);            
+            throw new Exception("O usuário ID: " . $id . " não foi encontrado.", 404);
         }
 
         return [
@@ -69,12 +70,12 @@ class User extends Api
         $postVars = $request->getPostVars();
 
         if (!isset($postVars['nome']) || !isset($postVars['email']) || !isset($postVars['password'])) {
-            throw new \Exception("Os campos nome, email e senha são obrigatórios", 400);            
+            throw new Exception("Os campos nome, email e senha são obrigatórios", 400);
         }
 
         $obUserEmail = EntityUser::getUserByEmail($postVars['email']);
         if ($obUserEmail instanceof EntityUser) {
-            throw new \Exception("O e-mail: " . $postVars['email'] . " já está em uso.", 400);            
+            throw new Exception("O e-mail: " . $postVars['email'] . " já está em uso.", 400);
         }
 
         $obUser = new EntityUser;
@@ -94,17 +95,17 @@ class User extends Api
         $postVars = $request->getPostVars();
 
         if (!isset($postVars['nome']) || !isset($postVars['email']) || !isset($postVars['password'])) {
-            throw new \Exception("Os campos nome, email e senha são obrigatórios", 400);            
+            throw new Exception("Os campos nome, email e senha são obrigatórios", 400);
         }
 
         $obUser = EntityUser::getUserById($id);
         if (!$obUser instanceof EntityUser) {
-            throw new \Exception("O usuário ID: " . $id . " não foi encontrado.", 404);            
+            throw new Exception("O usuário ID: " . $id . " não foi encontrado.", 404);
         }
 
         $obUserEmail = EntityUser::getUserByEmail($postVars['email']);
         if ($obUserEmail instanceof EntityUser && $obUserEmail->id != $obUser->id) {
-            throw new \Exception("O e-mail: " . $postVars['email'] . " já está em uso.", 400);            
+            throw new Exception("O e-mail: " . $postVars['email'] . " já está em uso.", 400);
         }
 
         $obUser->nome = $postVars['nome'];
@@ -123,11 +124,11 @@ class User extends Api
         $obUser = EntityUser::getUserById($id);
         
         if (!$obUser instanceof EntityUser) {
-            throw new \Exception("O usuário ID: " . $id . " não foi encontrado.", 404);
+            throw new Exception("O usuário ID: " . $id . " não foi encontrado.", 404);
         }
 
         if ($obUser->id == $request->user->id) {
-            throw new \Exception("Não é possível excluir o cadastro atualmente conectado.", 400);
+            throw new Exception("Não é possível excluir o cadastro atualmente conectado.", 400);
         }
 
         $obUser->excluir();
