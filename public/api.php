@@ -11,7 +11,7 @@ $router = new Router(URL);
 $router->post('/api/v1/auth', [
     'middlewares' => ['api'],
     function($request) {
-        return new Response(201, Controller\Api\Auth::generateToken($request), 'application/json');
+        return new Response(201, Auth::generateToken($request), 'application/json');
     }
 ]);
 

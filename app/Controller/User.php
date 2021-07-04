@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Api;
+namespace App\Controller;
 
 use \App\Model\Entity\User as EntityUser;
 use \App\Utils\Pagination;
@@ -37,7 +37,8 @@ class User extends Api
         ];
     }
 
-    public static function getUser($request, $id) {
+    public static function getUser($request, $id): array
+    {
         if (!is_numeric($id)) {
             throw new \Exception("O ID: " . $id . " não é válido", 400);            
         }
