@@ -97,7 +97,8 @@ class Router
             }
         }
         //throw new Exception("URL não encontrada.", 404);
-        //http_send_status(404);
+        header('Content-type:application/json;charset=utf-8');
+        http_response_code(404);
         echo json_encode(['success' => false, 'message' => 'URL não encontrada.'],  JSON_UNESCAPED_UNICODE);
         exit;
     }
