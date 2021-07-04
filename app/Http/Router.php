@@ -9,11 +9,11 @@ use \App\Http\Middleware\Queue as MiddlewareQueue;
 
 class Router
 {
-    private $url = '';
-    private $prefix = '';
-    private $routes = [];
-    private $request;
-    private $contentType = 'text/html';
+    private string $url = '';
+    private string $prefix = '';
+    private array $routes = [];
+    private string $contentType = 'text/html';
+    private Request $request;
 
     public function __construct($url) {
         $this->request = new Request($this);
