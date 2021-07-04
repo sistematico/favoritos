@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Api;
 
-use App\Model\User;
+use \App\Model\Entity\User;
 use \Firebase\JWT\JWT;
 
 class Auth extends Api
 {
-    public static function generateToken($request): array
-    {
+    public static function generateToken($request) {
         $postVars = $request->getPostVars();
 
-        if (!isset($postVars['email']) || !isset($postVars['password']))
-        {
+        if (!isset($postVars['email']) || !isset($postVars['password'])) {
             throw new \Exception("Os campos email e senha são obrigatórios.", 400);            
         }
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Api;
 
-use \App\Model\User as EntityUser;
+use \App\Model\Entity\User as EntityUser;
 use \App\Utils\Pagination;
 
 class User extends Api

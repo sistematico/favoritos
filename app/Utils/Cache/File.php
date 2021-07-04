@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Utils;
+namespace App\Utils\Cache;
 
-class Cache
+class File
 {
     private static function getFilePath($hash) {
         $dir = CACHE_DIR;

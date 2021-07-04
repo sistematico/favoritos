@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use \App\Model\User;
+use \App\Model\Entity\User;
 use \Firebase\JWT\JWT;
 
 class JwtAuth

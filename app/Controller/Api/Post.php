@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Api;
 
-use \App\Model\Post as EntityPost;
+use \App\Model\Entity\Post as EntityPost;
 use \App\Utils\Pagination;
 
 class Post extends Api

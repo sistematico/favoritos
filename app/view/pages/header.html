@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-md navbar-dark mb-4" style="background-color: #1B1B1B;">
+  <div class="container">
+    <a class="navbar-brand" href="{{URL}}">
+      <img src="{{URL}}/img/navbar.png" alt="PrivateHub" width="24" height="24" class="d-inline-block align-text-top">
+      PrivateHub
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        {{menu}}
+      </ul>
+
+      <ul class="navbar-nav text-end">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Estado
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="{{URL}}/estado/ac">Acre</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/al">Alagoas</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/ap">Amapá</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/am">Amazonas</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/ba">Bahia</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/ce">Ceará</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/df">Distrito Federal</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/es">Espírito Santo</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/go">Goiás</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/ma">Maranhão</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/mt">Mato Grosso</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/ms">Mato Grosso do Sul</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/mg">Minas Gerais</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/pa">Pará</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/pb">Paraíba</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/pr">Paraná</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/pe">Pernambuco</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/pi">Piauí</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/rj">Rio de Janeiro</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/rn">Rio Grande do Norte</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/rs">Rio Grande do Sul</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/ro">Rondônia</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/rr">Roraima</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/sc">Santa Catarina</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/sp">São Paulo</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/se">Sergipe</a></li>
+            <li><a class="dropdown-item" href="{{URL}}/estado/to">Tocantins</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="text-end">
+        {{login}}
+      </div>
+    </div>
+  </div>
+</nav>
