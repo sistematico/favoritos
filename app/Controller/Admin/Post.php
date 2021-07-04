@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use \App\Utils\View;
-use \App\Model\Entity\Post as EntityPost;
+use \App\Model\Post as EntityPost;
 use \App\Utils\Pagination;
 
 class Post extends Page
