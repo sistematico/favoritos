@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-class CacheFile
+class Cache
 {
     private function isCacheable($request) {
         if (CACHE_TIME <= 0) {
