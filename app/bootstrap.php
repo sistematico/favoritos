@@ -4,16 +4,13 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 
 use App\Utils\Database;
 use App\Utils\View;
-use App\Middleware\Queue as MiddlewareQueue;
 
-use App\Middleware\Api;
-use App\Middleware\Cache;
-use App\Middleware\JwtAuth;
-use App\Middleware\RequireAdminLogin;
-use App\Middleware\RequireAdminLogout;
-use App\Middleware\RequireUserLogin;
-use App\Middleware\RequireUserLogout;
-use App\Middleware\UserBasicAuth;
+use App\Http\Middleware\Queue as MiddlewareQueue;
+use App\Http\Middleware\Api;
+use App\Http\Middleware\Cache;
+use App\Http\Middleware\JwtAuth;
+use App\Http\Middleware\Login;
+use App\Http\Middleware\Logout;
 
 $config = parse_ini_file(dirname(__DIR__) . '/.env');
 $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'];
@@ -32,13 +29,11 @@ Database::config(dirname(__DIR__) . '/db/database.sqlite');
 View::init(['URL' => URL,'SITENAME' => SITENAME]);
 
 MiddlewareQueue::setMap([
-    'require-admin-logout' => RequireAdminLogout::class,
-    'require-admin-login'  => RequireAdminLogin::class,
-    'require-user-login'   => RequireUserLogin::class,
-    'require-user-logout'  => RequireUserLogout::class,
-    'api'                  => Api::class,
-    'jwt-auth'             => JwtAuth::class,
-    'cache'                => Cache::class
+    'logout'   => Logout::class,
+    'login'    => Login::class,
+    'api'      => Api::class,
+    'jwt-auth' => JwtAuth::class,
+    'cache'    => Cache::class
 ]);
 
 MiddlewareQueue::setDefault(['api']);
