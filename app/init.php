@@ -7,8 +7,11 @@ $config = parse_ini_file(dirname(__DIR__) . '/.env');
 $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'];
 
 foreach ($config as $key => $value) {
-    define('"' . $key . '"', '"' . $value . '"');
+    echo $value;
+    //define('"' . $key . '"', '"' . $value . '"');
 }
+
+exit;
 
 Database::config(dirname(__DIR__) . '/db/database.sqlite');
 
