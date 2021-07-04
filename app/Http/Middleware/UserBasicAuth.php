@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use \App\Model\Entity\User;
+use \App\Model\User;
 
 class UserBasicAuth
 {

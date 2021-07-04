@@ -3,8 +3,8 @@
 namespace App\Controller\Pages;
 
 use \App\Utils\View;
-use \App\Model\Entity\Post as EntityPost;
-use \App\Model\Entity\User as EntityUser;
+use \App\Model\Post as EntityPost;
+use \App\Model\User as EntityUser;
 use \App\Utils\Pagination;
 
 class Post extends Page

@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use \App\Model\Entity\Post as EntityPost;
+use \App\Model\Post as EntityPost;
 use \App\Utils\Pagination;
 
 class Post extends Api

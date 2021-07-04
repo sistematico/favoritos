@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Session\User;
+namespace App\Session;
 
 class Login
 {

@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use \App\Utils\View;
-use \App\Model\Entity\User as EntityUser;
+use \App\Model\User as EntityUser;
 use \App\Utils\Pagination;
 
 class User extends Page
