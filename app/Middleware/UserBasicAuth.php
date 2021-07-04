@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Middleware;
 
-use \App\Model\Entity\User;
+use \App\Model\User;
 
 class UserBasicAuth
 {

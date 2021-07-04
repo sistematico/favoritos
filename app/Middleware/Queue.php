@@ -29,10 +29,6 @@ class Queue
 
         $middleware = array_shift($this->middlewares);
 
-        // if (!isset(self::$map[$middleware])) {
-        //     throw new \Exception("Problema ao processar o middleware da requisição", 500);
-        // }
-
         $queue = $this;
         $next = function($request) use ($queue) {
             return $queue->next($request);
