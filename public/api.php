@@ -27,7 +27,7 @@ define('UPLOAD_URL', $config['UPLOAD_URL'] ?? URL . '/uploads');
 
 Database::config(dirname(__DIR__) . '/db/database.sqlite');
 
-View::init(['URL' => URL,'SITENAME' => SITENAME]);
+//View::init(['URL' => URL,'SITENAME' => SITENAME]);
 
 MiddlewareQueue::setMap([
     'maintenance'          => Middleware\Maintenance::class,
