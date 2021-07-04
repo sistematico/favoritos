@@ -4,45 +4,41 @@ namespace App\Utils;
 
 class Cache
 {
-    private static function getFilePath($hash) {
+    private static function getFilePath($hash): string
+    {
         if (!is_dir(CACHE_DIR)) mkdir(CACHE_DIR, 0755, true);
-
         return CACHE_DIR . '/' . $hash;
     }
 
-    private static function storageCache($hash, $content) {
+    private static function storageCache($hash, $content): void
+    {
         $serialize = serialize($content);
         $cacheFile = self::getFilePath($hash);
-        return file_put_contents($cacheFile, $serialize);
+        file_put_contents($cacheFile, $serialize);
     }
 
-    private static function getContentCache($hash, $expiration) {
+    private static function getContentCache($hash, $expiration)
+    {
         $cacheFile = self::getFilePath($hash);
 
-        if (!file_exists($cacheFile)) {
-            return false;
-        }
+        if (!file_exists($cacheFile)) return false;
 
         $createTime = filectime($cacheFile);
         $diffTime = time() - $createTime;
 
-        if ($diffTime > $expiration) {
-            return false;
-        }
+        if ($diffTime > $expiration) return false;
         
         $serialize = file_get_contents($cacheFile);
+
         return unserialize($serialize);
     }
 
-    public static function getCache($hash, $expiration, $function) {
-        if ($content = self::getContentCache($hash, $expiration)) {
-            return $content;
-        }
+    public static function getCache($hash, $expiration, $function)
+    {
+        if ($content = self::getContentCache($hash, $expiration)) return $content;
 
         $content = $function();
-
         self::storageCache($hash, $content);
-
         return $content;
     }
 }

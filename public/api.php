@@ -9,6 +9,7 @@ use App\Controller;
 
 use App\Utils\Database;
 use App\Utils\View;
+
 use App\Http\Middleware\Queue as MiddlewareQueue;
 
 use App\Http\Middleware\Api;
