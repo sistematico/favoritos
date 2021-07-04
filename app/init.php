@@ -11,7 +11,7 @@ foreach ($config as $key => $value) {
 
 //View::init(['URL' => URL,'SITENAME' => SITENAME]);
 
-MiddlewareQueue::setMap([
+\App\Http\Middleware\Queue::setMap([
     'maintenance'          => Middleware\Maintenance::class,
     'require-admin-logout' => Middleware\RequireAdminLogout::class,
     'require-admin-login'  => Middleware\RequireAdminLogin::class,
@@ -23,7 +23,7 @@ MiddlewareQueue::setMap([
     'cache'                => Middleware\Cache::class
 ]);
 
-MiddlewareQueue::setDefault(['maintenance']);
+\App\Http\Middleware\Queue::setDefault(['maintenance']);
 
 $router = new Router(URL);
 
