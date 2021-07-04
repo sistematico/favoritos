@@ -2,12 +2,12 @@
 
 namespace App\Middleware;
 
-use \App\Session\Admin\Login as SessionAdminLogin;
+use \App\Session\Admin\Login as SessionLogout;
 
-class RequireAdminLogout
+class Logout
 {
     public function handle($request, $next) {
-        if (SessionAdminLogin::isLogged()) {
+        if (SessionLogout::isLogged()) {
             $request->getRouter()->redirect('/admin');
         }
 
