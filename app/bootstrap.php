@@ -4,24 +4,22 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use App\Utils\Database;
 use App\Utils\View;
-use App\Http\Middleware\Queue as MiddlewareQueue;
+use App\Middleware\Queue as MiddlewareQueue;
 
-use App\Http\Middleware\Api;
-use App\Http\Middleware\Cache;
-use App\Http\Middleware\JwtAuth;
-use App\Http\Middleware\Maintenance;
-use App\Http\Middleware\RequireAdminLogin;
-use App\Http\Middleware\RequireAdminLogout;
-use App\Http\Middleware\RequireUserLogin;
-use App\Http\Middleware\RequireUserLogout;
-use App\Http\Middleware\UserBasicAuth;
+use App\Middleware\Api;
+use App\Middleware\Cache;
+use App\Middleware\JwtAuth;
+use App\Middleware\RequireAdminLogin;
+use App\Middleware\RequireAdminLogout;
+use App\Middleware\RequireUserLogin;
+use App\Middleware\RequireUserLogout;
+use App\Middleware\UserBasicAuth;
 
 $config = parse_ini_file(__DIR__ . '/../.env');
 $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'];
 
 define('SITENAME', $config['SITENAME'] ?? 'PrivateHub');
 define('URL', $config['URL'] ?? 'https://privatehub');
-define('MAINTENANCE', $config['MAINTENANCE'] ?? false);
 define('JWT_KEY', $config['JWT_KEY'] ?? '123456789');
 define('CACHE_TIME', $config['CACHE_TIME'] ?? 0);
 define('CACHE_DIR', $config['CACHE_DIR'] ?? '/tmp/privatehub/cache');
@@ -45,4 +43,4 @@ MiddlewareQueue::setMap([
     'cache'                => Cache::class
 ]);
 
-MiddlewareQueue::setDefault(['maintenance']);
+//MiddlewareQueue::setDefault(['maintenance']);

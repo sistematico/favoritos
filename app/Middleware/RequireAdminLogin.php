@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Middleware;
 
 use \App\Session\Admin\Login as SessionAdminLogin;
 
