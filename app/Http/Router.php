@@ -95,8 +95,7 @@ class Router
                 throw new Exception("Método não permitido.", 405);                    
             }
         }
-        //throw new Exception("URL não encontrada.", 404);  
-        header('location: ' . $this->url);      
+        throw new Exception("URL não encontrada.", 404);
     }
 
     public function run() {
