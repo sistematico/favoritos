@@ -6,21 +6,10 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 use App\Http\Router;
 use App\Http\Response;
 use App\Controller;
-
 use App\Utils\Database;
 use App\Utils\View;
-
+use App\Http\Middleware;
 use App\Http\Middleware\Queue as MiddlewareQueue;
-
-use App\Http\Middleware\Api;
-use App\Http\Middleware\Cache;
-use App\Http\Middleware\JwtAuth;
-use App\Http\Middleware\Maintenance;
-use App\Http\Middleware\RequireAdminLogin;
-use App\Http\Middleware\RequireAdminLogout;
-use App\Http\Middleware\RequireUserLogin;
-use App\Http\Middleware\RequireUserLogout;
-use App\Http\Middleware\UserBasicAuth;
 
 $config = parse_ini_file(dirname(__DIR__) . '/.env');
 $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'];
@@ -41,15 +30,15 @@ Database::config(dirname(__DIR__) . '/db/database.sqlite');
 View::init(['URL' => URL,'SITENAME' => SITENAME]);
 
 MiddlewareQueue::setMap([
-    'maintenance'          => Maintenance::class,
-    'require-admin-logout' => RequireAdminLogout::class,
-    'require-admin-login'  => RequireAdminLogin::class,
-    'require-user-login'   => RequireUserLogin::class,
-    'require-user-logout'  => RequireUserLogout::class,
-    'api'                  => Api::class,
-    'user-basic-auth'      => UserBasicAuth::class,
-    'jwt-auth'             => JwtAuth::class,
-    'cache'                => Cache::class
+    'maintenance'          => Middleware\Maintenance::class,
+    'require-admin-logout' => Middleware\RequireAdminLogout::class,
+    'require-admin-login'  => Middleware\RequireAdminLogin::class,
+    'require-user-login'   => Middleware\RequireUserLogin::class,
+    'require-user-logout'  => Middleware\RequireUserLogout::class,
+    'api'                  => Middleware\Api::class,
+    'user-basic-auth'      => Middleware\UserBasicAuth::class,
+    'jwt-auth'             => Middleware\JwtAuth::class,
+    'cache'                => Middleware\Cache::class
 ]);
 
 MiddlewareQueue::setDefault(['maintenance']);
@@ -59,7 +48,7 @@ $router = new Router(URL);
 $router->post('/api/v1/auth', [
     'middlewares' => ['api'],
     function($request) {
-        return new Response(201, Auth::generateToken($request), 'application/json');
+        return new Response(201, Controller\Auth::generateToken($request), 'application/json');
     }
 ]);
 
