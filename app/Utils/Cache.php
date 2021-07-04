@@ -1,18 +1,13 @@
 <?php
 
-namespace App\Utils\Cache;
+namespace App\Utils;
 
-class File
+class Cache
 {
     private static function getFilePath($hash) {
-        $dir = CACHE_DIR;
+        if (!is_dir(CACHE_DIR)) mkdir(CACHE_DIR, 0755, true);
 
-        if (!is_dir($dir)) {
-            die('Not Exists');
-            mkdir($dir, 0755, true);
-        }
-
-        return $dir . '/' . $hash;
+        return CACHE_DIR . '/' . $hash;
     }
 
     private static function storageCache($hash, $content) {
