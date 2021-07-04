@@ -2,8 +2,6 @@
 
 namespace App\Middleware;
 
-use \App\Utils\Cache\File as CacheFile;
-
 class Cache
 {
     private function isCacheable($request) {
@@ -36,7 +34,7 @@ class Cache
 
         $hash = $this->getHash($request);
         
-        return CacheFile::getCache($hash, CACHE_TIME, function () use ($request, $next) {
+        return \App\Utils\Cache::getCache($hash, CACHE_TIME, function () use ($request, $next) {
             return $next($request);
         });
     }
