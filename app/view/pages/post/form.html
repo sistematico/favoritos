@@ -1,0 +1,50 @@
+<section id="form">
+    <h3>Envie seu post</h3>
+
+    {{status}}
+    
+    <form enctype="multipart/form-data" method="post">
+        <input type="hidden" name="MAX_FILE_SIZE" value="30" />
+        <input type="hidden" name="type" value="image" />
+
+        <!-- $obPost->title = $postVars['title'];
+        $obPost->description = $postVars['description'];
+        $obPost->author = $postVars['author'];
+        $obPost->type = $postVars['type'];
+        $obPost->path = $postVars['path'];
+        $obPost->likes = $postVars['likes'];
+        $obPost->unlikes = $postVars['unlikes']; -->
+
+    
+        <!-- O Nome do elemento input determina o nome da array $_FILES -->
+    
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Arquivo</label>
+            <input name="userfile" class="form-control" type="file" id="formFile" required>
+        </div>
+
+        <div class="form-group">
+            <label>Título</label>
+            <input type="text" class="form-control" name="title" value="Titulo" required>
+        </div>
+
+        <div class="form-group">
+            <label>Descrição</label>
+            <input type="text" class="form-control" name="description" value="Descrição" required>
+        </div>
+
+        <div class="form-group">
+            <label>Autor</label>
+            <input type="text" class="form-control" name="author" value="Autor" required>
+        </div>
+
+        <div class="form-group">
+            <label>Mensagem</label>
+            <input type="text" class="form-control" name="title" value="Mensagem" required>
+        </div>
+
+        <div class="form-group mt-3">
+            <button type="submit" class="btn btn-success">Enviar</button>
+        </div>
+    </form>
+</section>
