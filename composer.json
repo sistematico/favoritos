@@ -16,7 +16,6 @@
     },
     "require": {
         "firebase/php-jwt": "^5.4",
-        "ext-json": "*",
-        "ext-http": "*"
+        "php-http/curl-client": "^2.2"
     }
 }
