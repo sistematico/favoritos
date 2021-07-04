@@ -5,15 +5,15 @@ namespace App\Http;
 use \Closure;
 use \Exception;
 use \ReflectionFunction;
-use \App\Middleware\Queue as MiddlewareQueue;
+use \App\Http\Middleware\Queue as MiddlewareQueue;
 
 class Router
 {
-    private $url = '';
-    private $prefix = '';
-    private $routes = [];
-    private $request;
+    private $url         = '';
+    private $prefix      = '';
+    private $routes      = [];
     private $contentType = 'text/html';
+    private $request;
 
     public function __construct($url) {
         $this->request = new Request($this);

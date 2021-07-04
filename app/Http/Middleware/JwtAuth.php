@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Middleware;
+namespace App\Http\Middleware;
 
-use \App\Model\Entity\User;
+use \App\Model\User;
 use \Firebase\JWT\JWT;
 
 class JwtAuth
