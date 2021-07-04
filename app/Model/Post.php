@@ -49,12 +49,12 @@ class Post
 
   public function excluir(): bool
   {
-    return (new Database('posts'))->delete('id = ' . $this->id);
+    return (new Database('favs'))->delete('id = ' . $this->id);
   }
 
   public static function getPosts($where = null, $order = null, $limit = null, $field = '*')
   {
-    return (new Database('posts'))->select($where, $order, $limit, $field);
+    return (new Database('favs'))->select($where, $order, $limit, $field);
   }
 
   public static function getPostById($id)
