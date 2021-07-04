@@ -2,11 +2,14 @@
 
 namespace App\Controller;
 
-use App\Model\Entity\User;
-use Firebase\JWT\JWT;
+use \App\Model\Entity\User;
+use \Firebase\JWT\JWT;
 
 class Auth extends Api
 {
+    /**
+     * @throws \Exception
+     */
     public static function generateToken($request): array
     {
         $postVars = $request->getPostVars();
