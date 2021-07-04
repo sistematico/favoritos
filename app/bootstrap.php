@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 
 use App\Utils\Database;
 use App\Utils\View;
@@ -15,7 +15,7 @@ use App\Middleware\RequireUserLogin;
 use App\Middleware\RequireUserLogout;
 use App\Middleware\UserBasicAuth;
 
-$config = parse_ini_file(__DIR__ . '/../.env');
+$config = parse_ini_file(dirname(__DIR__) . '/.env');
 $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'];
 
 define('SITENAME', $config['SITENAME'] ?? 'PrivateHub');
@@ -37,7 +37,6 @@ MiddlewareQueue::setMap([
     'require-user-login'   => RequireUserLogin::class,
     'require-user-logout'  => RequireUserLogout::class,
     'api'                  => Api::class,
-    'user-basic-auth'      => UserBasicAuth::class,
     'jwt-auth'             => JwtAuth::class,
     'cache'                => Cache::class
 ]);
