@@ -32,7 +32,6 @@ Database::config(dirname(__DIR__) . '/db/database.sqlite');
 View::init(['URL' => URL,'SITENAME' => SITENAME]);
 
 MiddlewareQueue::setMap([
-    'maintenance'          => Maintenance::class,
     'require-admin-logout' => RequireAdminLogout::class,
     'require-admin-login'  => RequireAdminLogin::class,
     'require-user-login'   => RequireUserLogin::class,
@@ -43,4 +42,4 @@ MiddlewareQueue::setMap([
     'cache'                => Cache::class
 ]);
 
-//MiddlewareQueue::setDefault(['maintenance']);
+MiddlewareQueue::setDefault(['api']);

@@ -2,7 +2,7 @@
 
 use App\Http\Router;
 use App\Http\Response;
-use App\Controller\Api;
+use App\Controller;
 
 require_once '../app/bootstrap.php';
 
