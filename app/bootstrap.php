@@ -1,22 +1,22 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 
-use \App\Utils\Database;
-use \App\Utils\View;
-use \App\Http\Middleware\Queue as MiddlewareQueue;
+use App\Utils\Database;
+use App\Utils\View;
+use App\Http\Middleware\Queue as MiddlewareQueue;
 
-use \App\Http\Middleware\Api;
-use \App\Http\Middleware\Cache;
-use \App\Http\Middleware\JwtAuth;
-use \App\Http\Middleware\Maintenance;
-use \App\Http\Middleware\RequireAdminLogin;
-use \App\Http\Middleware\RequireAdminLogout;
-use \App\Http\Middleware\RequireUserLogin;
-use \App\Http\Middleware\RequireUserLogout;
-use \App\Http\Middleware\UserBasicAuth;
+use App\Http\Middleware\Api;
+use App\Http\Middleware\Cache;
+use App\Http\Middleware\JwtAuth;
+use App\Http\Middleware\Maintenance;
+use App\Http\Middleware\RequireAdminLogin;
+use App\Http\Middleware\RequireAdminLogout;
+use App\Http\Middleware\RequireUserLogin;
+use App\Http\Middleware\RequireUserLogout;
+use App\Http\Middleware\UserBasicAuth;
 
-$config = parse_ini_file(ROOT . '/.env');
+$config = parse_ini_file(dirname(__DIR__) . '/.env');
 $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'];
 
 define('SITENAME', $config['SITENAME'] ?? 'PrivateHub');
@@ -30,7 +30,7 @@ define('PAGINATION_LIMIT', $config['PAGINATION_LIMIT'] ?? 10);
 define('UPLOAD_DIR', $config['UPLOAD_DIR'] ?? '/var/www/privatehub.com.br/public/uploads');
 define('UPLOAD_URL', $config['UPLOAD_URL'] ?? URL . '/uploads');
 
-Database::config(ROOT . '/db/database.sqlite');
+Database::config(dirname(__DIR__) . '/db/database.sqlite');
 
 View::init(['URL' => URL,'SITENAME' => SITENAME]);
 
