@@ -99,7 +99,7 @@ class Router
         //throw new Exception("URL não encontrada.", 404);
         header('Content-type:application/json;charset=utf-8');
         http_response_code(404);
-        echo json_encode(['success' => false, 'message' => 'URL não encontrada.'],  JSON_UNESCAPED_UNICODE);
+        echo json_encode(['success' => false, 'message' => 'URL não encontrada.']);
         exit;
     }
 
@@ -108,8 +108,11 @@ class Router
             $route = $this->getRoute();
             
             if (!isset($route['controller'])) {
-                header('location: ' . $this->url);
                 //throw new Exception("A URL não pode ser processada", 500);
+                header('Content-type:application/json;charset=utf-8');
+                http_response_code(500);
+                echo json_encode(['success' => false, 'message' => 'A URL não pode ser processada.']);
+                exit;
             }
 
             $args = [];
