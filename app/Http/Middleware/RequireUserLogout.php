@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use \App\Session\User\Login as SessionUserLogin;
+use \App\Session\Login as SessionUserLogin;
 
 class RequireUserLogout
 {

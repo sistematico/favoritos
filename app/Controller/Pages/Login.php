@@ -4,7 +4,7 @@ namespace App\Controller\Pages;
 
 use \App\Utils\View;
 use \App\Model\User;
-use \App\Session\User\Login as SessionUserLogin;
+use \App\Session\Login as SessionUserLogin;
 use \App\Controller\Admin\Alert;
 
 class Login extends Page

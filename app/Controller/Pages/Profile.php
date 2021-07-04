@@ -3,7 +3,7 @@
 namespace App\Controller\Pages;
 
 use App\Utils\View;
-use \App\Session\User\Login as SessionUserLogin;
+use \App\Session\Login as SessionUserLogin;
 
 class Profile extends Page
 {

@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use \App\Utils\View;
 use \App\Model\User;
-use \App\Session\Admin\Login as SessionAdminLogin;
+use \App\Session\Login as SessionAdminLogin;
 
 class Login extends Page
 {
