@@ -71,7 +71,8 @@ class Router
         return $this->addRoute('DELETE', $route, $params);
     }
 
-    public function getUri() {
+    public function getUri(): string
+    {
         $uri = $this->request->getUri();
         $xUri = strlen($this->prefix) ? explode($this->prefix, $uri) : [$uri];
         return rtrim(end($xUri), '/');
@@ -95,7 +96,9 @@ class Router
                 throw new Exception("Método não permitido.", 405);                    
             }
         }
-        throw new Exception("URL não encontrada.", 404);
+        //throw new Exception("URL não encontrada.", 404);
+        echo json_encode(['success' => false, 'message' => 'URL não encontrada.']);
+        exit;
     }
 
     public function run() {
