@@ -59,7 +59,7 @@ $router->delete('/api/v1/users/{id}', [
 
 
 // Posts
-$obRouter->get('/api/v1/posts', [
+$router->get('/api/v1/posts', [
     'middlewares' => [
         'api',
         'cache'
@@ -69,7 +69,7 @@ $obRouter->get('/api/v1/posts', [
     }
 ]);
 
-$obRouter->get('/api/v1/posts/{id}', [
+$router->get('/api/v1/posts/{id}', [
     'middlewares' => [
         'api'
     ],
@@ -78,7 +78,7 @@ $obRouter->get('/api/v1/posts/{id}', [
     }
 ]);
 
-$obRouter->post('/api/v1/posts', [
+$router->post('/api/v1/posts', [
     'middlewares' => [
         'api'
     ],
@@ -87,7 +87,7 @@ $obRouter->post('/api/v1/posts', [
     }
 ]);
 
-$obRouter->put('/api/v1/posts/{id}', [
+$router->put('/api/v1/posts/{id}', [
     'middlewares' => [
         'api'
     ],
@@ -96,7 +96,7 @@ $obRouter->put('/api/v1/posts/{id}', [
     }
 ]);
 
-$obRouter->delete('/api/v1/posts/{id}', [
+$router->delete('/api/v1/posts/{id}', [
     'middlewares' => [
         'api',
     ],
