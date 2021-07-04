@@ -49,9 +49,7 @@ class Router
         }
 
         $route = rtrim($route, '/');
-
         $patternRoute = '/^' . str_replace('/', '\/', $route) . '$/';
-
         $this->routes[$patternRoute][$method] = $params;
     }
 
@@ -132,9 +130,7 @@ class Router
     private function getErrorMessage($message) {
         switch ($this->contentType) {
             case 'application/json':
-                return [
-                    'error' => $message
-                ];
+                return ['error' => $message];
                 break;            
             default:
                 return $message;
@@ -142,13 +138,13 @@ class Router
         }
     }
 
-    public function getCurrentUrl() {
+    public function getCurrentUrl(): string
+    {
         return $this->url . $this->getUri();    
     }
 
     public function redirect($route) {
         $url = $this->url . $route;
-
         header('location: ' . $url);
         exit;
     }
