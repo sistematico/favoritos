@@ -1,32 +1,64 @@
 <?php
 
 use \App\Http\Response;
-use \App\Controller\Pages;
+use \App\Controller\Api;
 
-$obRouter->get('/user',[
-    'middlewares' => ['require-user-login'],
+$obRouter->get('/api/v1/users', [
+    'middlewares' => [
+        'api',
+        'jwt-auth'
+    ],
     function($request) {
-        return new Response(200, Pages\Profile::getHome($request));
+        return new Response(200, Api\User::getUsers($request), 'application/json');
     }
 ]);
 
-$obRouter->get('/user/login',[
-    'middlewares' => ['require-user-logout'],
+$obRouter->get('/api/v1/users/me', [
+    'middlewares' => [
+        'api',
+        'jwt-auth'
+    ],
     function($request) {
-        return new Response(200, Pages\Login::getLogin($request));
+        return new Response(200, Api\User::getCurrentUser($request), 'application/json');
     }
 ]);
 
-$obRouter->get('/user/logout',[
-    'middlewares' => ['require-user-login'],
-    function($request) {
-        return new Response(200, Pages\Login::setLogout($request));
+$obRouter->get('/api/v1/users/{id}', [
+    'middlewares' => [
+        'api',
+        'jwt-auth'
+    ],
+    function($request, $id) {
+        return new Response(200, Api\User::getUser($request, $id), 'application/json');
     }
 ]);
 
-$obRouter->post('/user/login',[
-    'middlewares' => ['require-user-logout'],
+$obRouter->post('/api/v1/users', [
+    'middlewares' => [
+        'api',
+        'jwt-auth'
+    ],
     function($request) {
-        return new Response(200, Pages\Login::setLogin($request));
+        return new Response(201, Api\User::setNewUser($request), 'application/json');
+    }
+]);
+
+$obRouter->put('/api/v1/users/{id}', [
+    'middlewares' => [
+        'api',
+        'jwt-auth'
+    ],
+    function($request, $id) {
+        return new Response(200, Api\User::setEditUser($request, $id), 'application/json');
+    }
+]);
+
+$obRouter->delete('/api/v1/users/{id}', [
+    'middlewares' => [
+        'api',
+        'jwt-auth'
+    ],
+    function($request, $id) {
+        return new Response(200, Api\User::setDeleteUser($request, $id), 'application/json');
     }
 ]);
