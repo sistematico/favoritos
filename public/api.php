@@ -57,7 +57,6 @@ $router->delete('/api/v1/users/{id}', [
     }
 ]);
 
-
 // Posts
 $router->get('/api/v1/posts', [
     'middlewares' => ['api','cache'],
@@ -67,36 +66,28 @@ $router->get('/api/v1/posts', [
 ]);
 
 $router->get('/api/v1/posts/{id}', [
-    'middlewares' => [
-        'api'
-    ],
+    'middlewares' => ['api'],
     function($request, $id) {
         return new Response(200, Controller\Post::getPost($request, $id), 'application/json');
     }
 ]);
 
 $router->post('/api/v1/posts', [
-    'middlewares' => [
-        'api'
-    ],
+    'middlewares' => ['api'],
     function($request) {
         return new Response(201, Controller\Post::setNewPost($request), 'application/json');
     }
 ]);
 
 $router->put('/api/v1/posts/{id}', [
-    'middlewares' => [
-        'api'
-    ],
+    'middlewares' => ['api'],
     function($request, $id) {
         return new Response(200, Controller\Post::setEditPost($request, $id), 'application/json');
     }
 ]);
 
 $router->delete('/api/v1/posts/{id}', [
-    'middlewares' => [
-        'api',
-    ],
+    'middlewares' => ['api'],
     function($request, $id) {
         return new Response(200, Controller\Post::setDeletePost($request, $id), 'application/json');
     }
