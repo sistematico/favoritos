@@ -12,7 +12,7 @@ class Router
     private string $url = '';
     private string $prefix = '';
     private array $routes = [];
-    private string $contentType = 'text/html';
+    private string $contentType = 'application/json';
     private Request $request;
 
     public function __construct($url) {
